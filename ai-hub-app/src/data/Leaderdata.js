@@ -22,7 +22,7 @@ export const leadersData = [
     social: { linkedin: "#", twitter: "#", email: "#" }
   },
   {
-    id: 2,
+    id: 3,
     name: "Vedastus Mlingi",
     role: "Hub Chair",
     bio: "Bachelor of Engineering in Telecommunication System (MUST). Expertised as Programmer, Front-end Developer and Signal Processing.",
@@ -30,7 +30,7 @@ export const leadersData = [
     social: { linkedin: "#", twitter: "#", email: "#" }
   },
   {
-    id: 2,
+    id: 4,
     name: "Vedastus Mlingi",
     role: "Hub Chair",
     bio: "Bachelor of Engineering in Telecommunication System (MUST). Expertised as Programmer, Front-end Developer and Signal Processing.",
@@ -38,7 +38,7 @@ export const leadersData = [
     social: { linkedin: "#", twitter: "#", email: "#" }
   },
   {
-    id: 2,
+    id: 5,
     name: "Vedastus Mlingi",
     role: "Hub Chair",
     bio: "Bachelor of Engineering in Telecommunication System (MUST). Expertised as Programmer, Front-end Developer and Signal Processing.",
