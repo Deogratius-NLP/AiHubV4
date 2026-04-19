@@ -1,0 +1,387 @@
+/* ===================================
+   TEAM PHOTO SECTION - ENHANCED
+   Optimized for Large Screens & Image Clarity
+   =================================== */
+
+/* Base Team Photo Section */
+.team-photo-section {
+    position: relative;
+    padding: 0;
+    margin-bottom: 60px;
+}
+
+/* Team Photo Card Container */
+.team-photo-card {
+    position: relative;
+    background: rgba(10, 25, 47, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 191, 255, 0.15);
+    border-radius: 30px;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+    box-shadow: 
+        0 10px 40px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.team-photo-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(0, 191, 255, 0.4);
+    box-shadow: 
+        0 25px 60px rgba(0, 191, 255, 0.25),
+        0 0 0 1px rgba(0, 191, 255, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Image Container with Aspect Ratio */
+.team-photo-container {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(0, 191, 255, 0.1) 0%, rgba(0, 255, 255, 0.05) 100%);
+}
+
+/* Team Group Photo - Optimized for Clarity */
+.team-group-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+    
+    /* Image quality optimization */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+.team-photo-card:hover .team-group-photo {
+    transform: scale(1.05) translateZ(0);
+}
+
+/* Gradient Overlay */
+.team-photo-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(10, 14, 39, 0.3) 40%,
+        rgba(10, 14, 39, 0.9) 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Content Section */
+.team-photo-content {
+    position: relative;
+    padding: 50px 40px;
+    text-align: center;
+    z-index: 2;
+    background: linear-gradient(180deg, rgba(10, 25, 47, 0.8) 0%, rgba(10, 25, 47, 0.95) 100%);
+}
+
+.team-photo-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: all 0.4s ease;
+}
+
+.team-photo-card:hover .team-photo-title {
+    filter: drop-shadow(0 0 10px rgba(0, 191, 255, 0.5));
+}
+
+.team-photo-description {
+    font-size: 17px;
+    line-height: 1.9;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 850px;
+    margin: 0 auto 30px;
+    transition: color 0.4s ease;
+}
+
+.team-photo-card:hover .team-photo-description {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+/* Learn More Button */
+.team-learn-more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 36px;
+    background: linear-gradient(135deg, rgba(0, 191, 255, 0.2), rgba(0, 255, 255, 0.15));
+    border: 2px solid rgba(0, 191, 255, 0.3);
+    border-radius: 50px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+    backdrop-filter: blur(10px);
+}
+
+.team-learn-more-btn:hover {
+    background: linear-gradient(135deg, rgba(0, 191, 255, 0.3), rgba(0, 255, 255, 0.25));
+    border-color: rgba(0, 191, 255, 0.6);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 191, 255, 0.3);
+}
+
+.team-learn-more-btn svg {
+    transition: transform 0.3s ease;
+}
+
+.team-learn-more-btn:hover svg {
+    transform: translateX(5px);
+}
+
+/* ===================================
+   RESPONSIVE BREAKPOINTS
+   =================================== */
+
+/* Large Desktop - 1400px+ */
+@media (min-width: 1400px) {
+    .team-photo-card {
+        max-width: 1400px;
+        margin: 0 auto;
+        border-radius: 40px;
+    }
+
+    .team-photo-container {
+        height: 600px;
+    }
+
+    .team-photo-content {
+        padding: 60px 80px;
+    }
+
+    .team-photo-title {
+        font-size: 42px;
+        margin-bottom: 24px;
+    }
+
+    .team-photo-description {
+        font-size: 19px;
+        line-height: 2;
+        max-width: 950px;
+    }
+
+    .team-learn-more-btn {
+        padding: 18px 42px;
+        font-size: 17px;
+    }
+}
+
+/* Extra Large Desktop - 1600px+ */
+@media (min-width: 1600px) {
+    .team-photo-card {
+        max-width: 1600px;
+    }
+
+    .team-photo-container {
+        height: 650px;
+    }
+
+    .team-photo-content {
+        padding: 70px 100px;
+    }
+
+    .team-photo-title {
+        font-size: 46px;
+    }
+
+    .team-photo-description {
+        font-size: 20px;
+        max-width: 1050px;
+    }
+}
+
+/* Ultra Wide - 1920px+ */
+@media (min-width: 1920px) {
+    .team-photo-card {
+        max-width: 1800px;
+    }
+
+    .team-photo-container {
+        height: 700px;
+    }
+
+    .team-photo-content {
+        padding: 80px 120px;
+    }
+
+    .team-photo-title {
+        font-size: 50px;
+    }
+
+    .team-photo-description {
+        font-size: 21px;
+        line-height: 2.2;
+        max-width: 1150px;
+    }
+
+    .team-learn-more-btn {
+        padding: 20px 48px;
+        font-size: 18px;
+    }
+}
+
+/* Desktop Standard - 1024px to 1399px */
+@media (min-width: 1024px) and (max-width: 1399px) {
+    .team-photo-container {
+        height: 500px;
+    }
+
+    .team-photo-content {
+        padding: 45px 50px;
+    }
+
+    .team-photo-title {
+        font-size: 36px;
+    }
+
+    .team-photo-description {
+        font-size: 17px;
+        max-width: 800px;
+    }
+}
+
+/* Tablet Landscape - 768px to 1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .team-photo-container {
+        height: 400px;
+    }
+
+    .team-photo-content {
+        padding: 40px 35px;
+    }
+
+    .team-photo-title {
+        font-size: 32px;
+    }
+
+    .team-photo-description {
+        font-size: 16px;
+        max-width: 700px;
+    }
+
+    .team-learn-more-btn {
+        padding: 14px 32px;
+        font-size: 15px;
+    }
+}
+
+/* Tablet Portrait - 481px to 767px */
+@media (max-width: 767px) {
+    .team-photo-section {
+        margin-bottom: 40px;
+    }
+
+    .team-photo-card {
+        border-radius: 24px;
+    }
+
+    .team-photo-container {
+        height: 300px;
+    }
+
+    .team-photo-content {
+        padding: 35px 25px;
+    }
+
+    .team-photo-title {
+        font-size: 28px;
+        margin-bottom: 16px;
+    }
+
+    .team-photo-description {
+        font-size: 15px;
+        line-height: 1.7;
+        margin-bottom: 24px;
+    }
+
+    .team-learn-more-btn {
+        padding: 12px 28px;
+        font-size: 14px;
+    }
+}
+
+/* Mobile - 480px and below */
+@media (max-width: 480px) {
+    .team-photo-card {
+        border-radius: 20px;
+    }
+
+    .team-photo-container {
+        height: 250px;
+    }
+
+    .team-photo-content {
+        padding: 30px 20px;
+    }
+
+    .team-photo-title {
+        font-size: 24px;
+    }
+
+    .team-photo-description {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .team-learn-more-btn {
+        padding: 12px 24px;
+        font-size: 14px;
+        gap: 8px;
+    }
+}
+
+/* ===================================
+   HIGH DPI DISPLAYS
+   =================================== */
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .team-group-photo {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* ===================================
+   ACCESSIBILITY
+   =================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .team-photo-card,
+    .team-group-photo,
+    .team-learn-more-btn {
+        transition: none;
+    }
+
+    .team-photo-card:hover .team-group-photo {
+        transform: none;
+    }
+}
+
+/* Focus States */
+.team-learn-more-btn:focus {
+    outline: 2px solid rgba(0, 191, 255, 0.6);
+    outline-offset: 4px;
+}
+
+.team-learn-more-btn:focus:not(:focus-visible) {
+    outline: none;
+}

@@ -1,0 +1,625 @@
+/* ============================================
+   SPONSORSHIP SECTION - SIMPLE DESIGN
+   ============================================ */
+
+.sponsors-section {
+    background: linear-gradient(180deg, var(--dark-secondary) 0%, var(--dark-bg) 50%, var(--dark-secondary) 100%);
+    position: relative;
+    overflow: hidden;
+    padding: 100px 0;
+}
+
+.sponsors-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(0, 191, 255, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* Sponsors Grid */
+.sponsors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+    position: relative;
+    z-index: 1;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+}
+
+/* Optimize grid for specific card counts */
+@media (min-width: 1024px) {
+    .sponsors-grid:has(.sponsor-card:nth-last-child(1):nth-child(1)) {
+        /* 1 card */
+        grid-template-columns: minmax(220px, 400px);
+        justify-content: center;
+    }
+
+    .sponsors-grid:has(.sponsor-card:nth-last-child(2):nth-child(-n+2)) {
+        /* 2 cards */
+        grid-template-columns: repeat(2, minmax(220px, 450px));
+        justify-content: center;
+    }
+
+    .sponsors-grid:has(.sponsor-card:nth-last-child(3):nth-child(-n+3)) {
+        /* 3 cards */
+        grid-template-columns: repeat(3, minmax(220px, 400px));
+        justify-content: center;
+    }
+}
+
+/* Sponsor Cards */
+.sponsor-card {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.sponsor-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0, 191, 255, 0.05) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.sponsor-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(0, 191, 255, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 191, 255, 0.2);
+}
+
+.sponsor-card:hover::before {
+    opacity: 1;
+}
+
+.sponsor-logo {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.sponsor-logo-img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    color: #fff;
+    transition: all 0.4s ease;
+}
+
+.sponsor-card:hover .sponsor-logo-img {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 15px rgba(0, 191, 255, 0.6));
+}
+
+.sponsor-description {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s ease;
+}
+
+.sponsor-card:hover .sponsor-description {
+    color: var(--primary-color);
+}
+
+/* ============================================
+   PARTNERSHIP CTA - PERFECT HORIZONTAL SUBSECTION
+   ============================================ */
+
+/* Partnership Wrapper */
+.partnership-cta-wrapper {
+    margin-top: 50px;
+    position: relative;
+    width: 100%;
+}
+
+/* Minimal Elegant Divider */
+.partnership-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 35px;
+    position: relative;
+    opacity: 0.8;
+}
+
+.divider-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(0, 191, 255, 0.15) 50%, transparent 100%);
+    max-width: 250px;
+}
+
+.divider-icon {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, rgba(0, 191, 255, 0.1), rgba(0, 255, 255, 0.1));
+    border: 1.5px solid rgba(0, 191, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin: 0 16px;
+    animation: subtlePulse 4s ease-in-out infinite;
+}
+
+.divider-icon svg {
+    width: 20px;
+    height: 20px;
+    color: var(--primary-color);
+    opacity: 0.9;
+}
+
+@keyframes subtlePulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.03);
+        opacity: 1;
+    }
+}
+
+/* Partnership CTA - Sleek Horizontal */
+.partnership-cta {
+    position: relative;
+    width: 100%;
+}
+
+.cta-content {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 191, 255, 0.15);
+    border-radius: 20px;
+    padding: 28px 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.cta-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 191, 255, 0.06), transparent);
+    transition: left 0.7s ease;
+}
+
+.cta-content::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(0, 191, 255, 0.03) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.cta-content:hover::before {
+    left: 100%;
+}
+
+.cta-content:hover {
+    border-color: rgba(0, 191, 255, 0.35);
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: 
+        0 12px 40px rgba(0, 191, 255, 0.15),
+        0 0 50px rgba(0, 191, 255, 0.08);
+    transform: translateY(-6px);
+}
+
+/* Icon - Compact */
+.cta-icon {
+    width: 52px;
+    height: 52px;
+    background: linear-gradient(135deg, rgba(0, 191, 255, 0.15), rgba(0, 255, 255, 0.15));
+    border: 1.5px solid rgba(0, 191, 255, 0.25);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+    position: relative;
+    z-index: 2;
+}
+
+.cta-content:hover .cta-icon {
+    transform: rotate(360deg) scale(1.08);
+    box-shadow: 0 0 20px rgba(0, 191, 255, 0.35);
+    background: linear-gradient(135deg, rgba(0, 191, 255, 0.22), rgba(0, 255, 255, 0.22));
+    border-color: rgba(0, 191, 255, 0.4);
+}
+
+.cta-icon svg {
+    width: 26px;
+    height: 26px;
+    color: var(--primary-color);
+}
+
+/* Text - Optimized */
+.cta-text {
+    flex: 1;
+    position: relative;
+    z-index: 2;
+    min-width: 0;
+}
+
+.cta-text h3 {
+    font-size: 22px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 6px;
+    background: linear-gradient(135deg, #fff 0%, var(--primary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.2;
+}
+
+.cta-text p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Button - Sleek */
+.cta-button {
+    padding: 14px 28px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+    box-shadow: 0 6px 20px rgba(0, 191, 255, 0.25);
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    z-index: 2;
+    white-space: nowrap;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cta-button:hover::before {
+    opacity: 1;
+}
+
+.cta-button span,
+.cta-button svg {
+    position: relative;
+    z-index: 1;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 10px 30px rgba(0, 191, 255, 0.45);
+}
+
+.cta-button svg {
+    transition: transform 0.3s ease;
+}
+
+.cta-button:hover svg {
+    transform: translateX(4px);
+}
+
+/* Responsive - Horizontal on 900px+, Vertical below */
+@media (min-width: 900px) and (max-width: 1023px) {
+    .cta-content {
+        padding: 26px 30px;
+        max-width: 850px;
+        gap: 22px;
+    }
+
+    .cta-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .cta-text h3 {
+        font-size: 20px;
+    }
+
+    .cta-text p {
+        font-size: 12px;
+    }
+
+    .cta-button {
+        padding: 13px 26px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 899px) {
+    .cta-content {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 28px;
+        max-width: 550px;
+        gap: 20px;
+    }
+
+    .cta-button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .partnership-cta-wrapper {
+        margin-top: 35px;
+    }
+
+    .cta-content {
+        padding: 25px 20px;
+        border-radius: 16px;
+        gap: 16px;
+    }
+
+    .cta-icon {
+        width: 46px;
+        height: 46px;
+    }
+
+    .cta-text h3 {
+        font-size: 17px;
+    }
+
+    .cta-text p {
+        font-size: 11px;
+    }
+
+    .cta-button {
+        padding: 12px 24px;
+        font-size: 11px;
+    }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN (Combined)
+   ============================================ */
+
+@media (max-width: 1024px) {
+    .sponsors-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 25px;
+    }
+    
+    .cta-content {
+        max-width: 900px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sponsors-section {
+        padding: 80px 0;
+    }
+    
+    .sponsors-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 20px;
+        margin-top: 50px;
+        padding: 0 16px;
+    }
+    
+    .sponsor-card {
+        padding: 35px 25px;
+        border-radius: 18px;
+    }
+    
+    .sponsor-logo {
+        height: 70px;
+        margin-bottom: 15px;
+    }
+    
+    .sponsor-description {
+        font-size: 13px;
+    }
+    
+    .partnership-cta {
+        margin-top: 60px;
+        padding: 0 16px;
+    }
+    
+    .cta-content {
+        padding: 40px 30px;
+        gap: 25px;
+        max-width: 100%;
+        border-radius: 28px;
+    }
+    
+    .cta-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .cta-icon svg {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .cta-text h3 {
+        font-size: 24px;
+    }
+    
+    .cta-text p {
+        font-size: 14px;
+    }
+    
+    .cta-button {
+        padding: 16px 30px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sponsors-section {
+        padding: 60px 0;
+    }
+
+    .sponsors-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 0 12px;
+    }
+    
+    .sponsor-card {
+        padding: 30px 20px;
+        border-radius: 15px;
+    }
+    
+    .sponsor-logo {
+        height: 60px;
+    }
+    
+    .sponsor-description {
+        font-size: 12px;
+    }
+    
+    .partnership-cta {
+        margin-top: 50px;
+        padding: 0 12px;
+    }
+    
+    .cta-content {
+        padding: 35px 25px;
+        gap: 22px;
+        border-radius: 24px;
+    }
+    
+    .cta-icon {
+        width: 55px;
+        height: 55px;
+    }
+    
+    .cta-icon svg {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .cta-text h3 {
+        font-size: 20px;
+    }
+    
+    .cta-text p {
+        font-size: 13px;
+    }
+    
+    .cta-button {
+        width: 100%;
+        justify-content: center;
+        padding: 15px 25px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 360px) {
+    .sponsors-section {
+        padding: 50px 0;
+    }
+
+    .sponsors-grid {
+        gap: 12px;
+        padding: 0 10px;
+    }
+    
+    .sponsor-card {
+        padding: 25px 15px;
+        border-radius: 14px;
+    }
+    
+    .sponsor-logo {
+        height: 55px;
+    }
+    
+    .sponsor-description {
+        font-size: 11px;
+    }
+    
+    .partnership-cta {
+        padding: 0 10px;
+    }
+    
+    .cta-content {
+        padding: 30px 20px;
+        gap: 20px;
+        border-radius: 22px;
+    }
+    
+    .cta-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .cta-icon svg {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .cta-text h3 {
+        font-size: 18px;
+    }
+    
+    .cta-text p {
+        font-size: 12px;
+    }
+    
+    .cta-button {
+        padding: 14px 22px;
+        font-size: 12px;
+        gap: 6px;
+    }
+}
