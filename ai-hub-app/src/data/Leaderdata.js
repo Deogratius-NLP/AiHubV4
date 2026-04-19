@@ -1,4 +1,5 @@
 import logoImg from '../assets/AiHubLogo.png';
+import mustImg from '../assets/MUST.png';
 
 export const leadersData = [
   {
@@ -6,7 +7,7 @@ export const leadersData = [
     name: "Mr. Jofrey Nasson",
     role: "Hub Coordinator",
     bio: "Leading AI research with 5+ years of experience in Machine Learning. Passionate about democratizing AI education.",
-    image: logoImg, 
+    image: mustImg, 
     social: {
       linkedin: "#",
       twitter: "#",
