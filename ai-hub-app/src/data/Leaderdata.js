@@ -6,8 +6,8 @@ export const leadersData = [
     id: 1,
     name: "Mr. Jofrey Nasson",
     role: "Hub Coordinator",
-    bio: "Leading AI research with 5+ years of experience in Machine Learning. Passionate about democratizing AI education.",
-    image: mustImg, 
+    bio: "Leading AI resrch with 5+ years of experience in Machine Learning. Passionate about democratizing AI education.",
+    image: logoImg, 
     social: {
       linkedin: "#",
       twitter: "#",
