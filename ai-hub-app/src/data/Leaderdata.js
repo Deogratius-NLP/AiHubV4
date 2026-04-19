@@ -1,5 +1,4 @@
 import logoImg from '../assets/AiHubLogo.png';
-import mustImg from '../assets/MUST.png';
 
 export const leadersData = [
   {
