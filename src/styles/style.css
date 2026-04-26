@@ -35,6 +35,7 @@ body {
 section {
     padding: 100px 0;
     position: relative;
+    scroll-margin-top: 110px;
 }
 
 .section-header {

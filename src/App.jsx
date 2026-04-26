@@ -1,4 +1,4 @@
-
+﻿
 import './styles/header.css'
 import './styles/section.css'
 import './styles/footer.css'
@@ -6,11 +6,13 @@ import './styles/sponsors.css'
 import './styles/style.css'
 import './styles/leader.css'
 import './styles/leaders-photo.css'
+import './styles/projects.css'
 
 import Header from './components/header'
 import About from './components/about'
 import Events from './components/events'
-import Projects from './components/project'
+import Projects from './components/projects'
+import StatsCounter from './components/statscounter'
 import LeadersSection from './components/leadersection'   
 import Sponsorship from './components/sponsors'           
 import Partnership from './components/partnership'        
@@ -24,6 +26,7 @@ function App() {
       <About />
       <Events />
       <Projects />
+      <StatsCounter />
       <LeadersSection />    
       <Sponsorship />       
       <Partnership />       

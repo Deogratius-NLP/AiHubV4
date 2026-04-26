@@ -1,4 +1,4 @@
-/* ========================================
+﻿/* ========================================
    AI Hub Header Component - Standalone CSS
    UX/UI God Mode - No Conflicts Guaranteed
    ======================================== */
@@ -282,14 +282,27 @@
 
 /* Navigation */
 .ai-hub-nav {
-    position: relative;
-    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 8%;
+    padding: 14px 8%;
     animation: ai-hub-slideDown 0.8s ease-out;
-    background: linear-gradient(180deg, rgba(10, 14, 39, 0.8) 0%, transparent 100%);
+    background: rgba(10, 14, 39, 0.35);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+}
+
+.ai-hub-nav.scrolled {
+    background: rgba(10, 14, 39, 0.7);
+    border-bottom-color: rgba(0, 191, 255, 0.22);
+    box-shadow: 0 22px 80px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(0, 191, 255, 0.08) inset;
 }
 
 @keyframes ai-hub-slideDown {
@@ -319,9 +332,22 @@
     filter: drop-shadow(0 5px 15px rgba(0, 191, 255, 0.3));
 }
 
+.ai-hub-logo-badge {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: radial-gradient(circle at 30% 30%, rgba(0, 255, 255, 0.16) 0%, rgba(0, 191, 255, 0.06) 40%, rgba(10, 14, 39, 0.35) 100%);
+    border: 1px solid rgba(0, 191, 255, 0.25);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+    flex: 0 0 auto;
+}
+
 .ai-hub-logo-image {
-    height: 70px;
-    width: auto;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 8px;
     transition: all 0.4s ease;
     filter: drop-shadow(0 5px 20px rgba(0, 191, 255, 0.4));
 }
@@ -406,7 +432,7 @@
     gap: 6px;
     padding: 10px;
     position: relative;
-    z-index: 101;
+    z-index: 1101;
     justify-content: center;
     align-items: center;
     width: 50px;
@@ -454,7 +480,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 60px 5% 20px;
+    padding: 120px 5% 20px;
     text-align: center;
 }
 
@@ -932,7 +958,7 @@
 /* Tablet (1024px and below) */
 @media (max-width: 1024px) {
     .ai-hub-hero-header {
-        padding: 50px 5% 20px;
+        padding: 110px 5% 20px;
     }
 
     .ai-hub-hero-main-title {
@@ -940,7 +966,7 @@
     }
 
     .ai-hub-nav {
-        padding: 25px 5%;
+        padding: 12px 5%;
     }
 
     .ai-hub-nav-links {
@@ -952,10 +978,23 @@
     }
 }
 
+/* Desktop: hide the scroll indicator (keep it for mobile) */
+@media (min-width: 769px) {
+    .ai-hub-scroll-indicator {
+        display: none;
+    }
+}
+
 /* Mobile (768px and below) */
 @media (max-width: 768px) {
+    /* Hide decorative bubbles/shapes on mobile */
+    .ai-hub-floating-shapes,
+    .ai-hub-particles {
+        display: none;
+    }
+
     .ai-hub-nav {
-        padding: 20px 5%;
+        padding: 10px 5%;
     }
 
     .ai-hub-logo {
@@ -963,8 +1002,13 @@
         gap: 10px;
     }
 
+    .ai-hub-logo-badge {
+        width: 48px;
+        height: 48px;
+    }
+
     .ai-hub-logo-image {
-        height: 50px;
+        padding: 6px;
     }
 
     .ai-hub-logo-main {
@@ -999,7 +1043,7 @@
         backdrop-filter: blur(15px);
         box-shadow: -5px 0 30px rgba(0, 0, 0, 0.5);
         border-left: 2px solid rgba(0, 191, 255, 0.3);
-        z-index: 99;
+        z-index: 1100;
     }
 
     .ai-hub-nav-links.active {
@@ -1007,7 +1051,7 @@
     }
 
     .ai-hub-hero-header {
-        padding: 40px 5% 20px;
+        padding: 95px 5% 20px;
     }
 
     .ai-hub-hero-main-title {
@@ -1086,7 +1130,7 @@
     }
 
     .ai-hub-hero-header {
-        padding: 30px 5% 15px;
+        padding: 85px 5% 15px;
     }
 
     .ai-hub-hero-subtitle-wrapper {

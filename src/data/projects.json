@@ -1,0 +1,24 @@
+[
+  {
+    "id": "wanted-chatbot",
+    "title": "The Wanted Chatbot",
+    "topic": "Agriculture",
+    "summary": "A WhatsApp-style assistant that helps farmers get quick answers, crop tips, and local best practices.",
+    "githubUrl": "https://github.com/Deogratius-NLP/wanted-chatbot"
+  },
+  {
+    "id": "smart-farm-monitor",
+    "title": "Smart Farm Monitor",
+    "topic": "Agriculture",
+    "summary": "A lightweight dashboard that tracks field conditions and surfaces alerts with simple, readable insights.",
+    "githubUrl": "https://github.com/Deogratius-NLP/smart-farm-monitor"
+  },
+  {
+    "id": "secure-loan-scorer",
+    "title": "Secure Loan Scorer",
+    "topic": "Finance",
+    "summary": "A scoring prototype that explains decisions clearly and keeps sensitive inputs protected by design.",
+    "githubUrl": "https://github.com/Deogratius-NLP/secure-loan-scorer"
+  }
+]
+

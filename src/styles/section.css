@@ -1,4 +1,4 @@
-/* ========================================
+﻿/* ========================================
    ENHANCED SECTIONS STYLING
    Responsive & Stunning Design
    ======================================== */
@@ -1090,5 +1090,72 @@ footer {
     .team-photo-description {
         font-size: 17px;
         max-width: 850px;
+    }
+}
+
+/* Stats Section (moved out of hero) */
+.ai-hub-stats-section {
+    position: relative;
+    isolation: isolate;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 80px 0;
+    overflow: hidden;
+}
+
+.ai-hub-stats-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: rgba(10, 14, 39, 0.78);
+}
+
+.ai-hub-stats-container {
+    position: relative;
+    z-index: 1;
+}
+
+.ai-hub-stats-section .ai-hub-hero-stats {
+    margin-top: 0;
+}
+
+.ai-hub-stats-section .ai-hub-stat-number {
+    /* Ensure strong contrast on top of a photo background */
+    -webkit-text-fill-color: unset;
+    color: #e9fbff;
+    background: none;
+    text-shadow: 0 0 26px rgba(0, 191, 255, 0.55), 0 2px 14px rgba(0, 0, 0, 0.65);
+}
+
+.ai-hub-stats-section .ai-hub-stat-label {
+    color: rgba(255, 255, 255, 0.86);
+}
+
+/* Event Card Images */
+.event-image {
+    width: 100%;
+    height: 180px;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.event-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .ai-hub-stats-section {
+        padding: 55px 0;
+    }
+
+    .event-image {
+        height: 160px;
+        border-radius: 14px;
     }
 }

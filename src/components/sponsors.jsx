@@ -25,21 +25,8 @@ const Sponsorship = () => {
           <div className="sponsor-logo">
             <img src={must} alt="Vodacom" className="sponsor-logo-img" />
           </div>
-          <p className="sponsor-description">Data safari</p>
-        </div>
-        <div className="sponsor-card">
-          <div className="sponsor-logo">
-            <img src={Voda} alt="Vodacom" className="sponsor-logo-img" />
-          </div>
-          <p className="sponsor-description">Orange ML</p>
-        </div>
-        <div className="sponsor-card">
-          <div className="sponsor-logo">
-            <img src={Voda} alt="Vodacom" className="sponsor-logo-img" />
-          </div>
-          <p className="sponsor-description">AI for Good</p>
-        </div>
-      
+          <p className="sponsor-description">Center of Innovation and Technology transfer CITT</p>
+        </div>      
       </div>
     </div>
   </section>

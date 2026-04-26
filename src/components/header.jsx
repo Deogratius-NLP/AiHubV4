@@ -1,8 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
+﻿import { useState, useEffect, useRef } from 'react';
 import classImg from '../assets/class.jpg';
 import coorpImg from '../assets/coorp.jpg';
 import facilityImg from '../assets/facilty.jpg';
-import logoImg from '../assets/AiHubLogo.png';
+import logoImg from '../assets/logo.jpg';
 
 const Header = () => {
   // ========== Mobile Menu ==========
@@ -35,6 +35,15 @@ const Header = () => {
     document.body.style.overflow = isMenuOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [isMenuOpen]);
+
+  // ========== Navbar scroll state (glass morphism intensifies on scroll) ==========
+  const [isNavScrolled, setIsNavScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setIsNavScrolled(window.scrollY > 20);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   // ========== Slideshow ==========
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -112,6 +121,8 @@ const Header = () => {
   useEffect(() => {
     const container = document.getElementById('aiHubParticles');
     if (!container) return;
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) return;
     for (let i = 0; i < 50; i++) {
       const particle = document.createElement('div');
       particle.className = 'ai-hub-particle';
@@ -128,36 +139,6 @@ const Header = () => {
     };
   }, []);
 
-  // ========== Stats Counter ==========
-  const statsRef = useRef(null);
-  const [counts, setCounts] = useState({ members: 0, projects: 0, events: 0 });
-  const targets = { members: 50, projects: 20, events: 10 };
-  const [animated, setAnimated] = useState(false);
-
-  useEffect(() => {
-    if (!statsRef.current || animated) return;
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setAnimated(true);
-        ['members', 'projects', 'events'].forEach((key, idx) => {
-          let start = 0;
-          const increment = targets[key] / (2000 / 16); // 2000ms duration, 60fps
-          const timer = setInterval(() => {
-            start += increment;
-            if (start >= targets[key]) {
-              setCounts(prev => ({ ...prev, [key]: targets[key] }));
-              clearInterval(timer);
-            } else {
-              setCounts(prev => ({ ...prev, [key]: Math.floor(start) }));
-            }
-          }, 16);
-        });
-        observer.disconnect();
-      }
-    }, { threshold: 0.5 });
-    if (statsRef.current) observer.observe(statsRef.current);
-    return () => observer.disconnect();
-  }, [animated]);
 
   return (
     <header className="ai-hub-header" id="aiHubHeader">
@@ -189,9 +170,11 @@ const Header = () => {
       </div>
 
       {/* Navigation */}
-      <nav className="ai-hub-nav">
+      <nav className={`ai-hub-nav ${isNavScrolled ? 'scrolled' : ''}`}>
         <div className="ai-hub-logo">
-          <img src={logoImg} alt="AI Club Logo" className="ai-hub-logo-image" />
+          <div className="ai-hub-logo-badge" aria-hidden="true">
+            <img src={logoImg} alt="" className="ai-hub-logo-image" />
+          </div>
           <div className="ai-hub-logo-text">
             <span className="ai-hub-logo-main">
               AI <span className="ai-hub-logo-sub-1"> &amp; </span>
@@ -262,47 +245,8 @@ const Header = () => {
           </p>
         </div>
 
-        <div className="ai-hub-hero-stats" ref={statsRef}>
-          <div className="ai-hub-stat-item">
-            <div className="ai-hub-stat-number">{counts.members}+</div>
-            <div className="ai-hub-stat-label">Active Members</div>
-          </div>
-          <div className="ai-hub-stat-item">
-            <div className="ai-hub-stat-number">{counts.projects}+</div>
-            <div className="ai-hub-stat-label">Projects</div>
-          </div>
-          <div className="ai-hub-stat-item">
-            <div className="ai-hub-stat-number">{counts.events}+</div>
-            <div className="ai-hub-stat-label">Events</div>
-          </div>
-        </div>
 
-        <div className="ai-hub-hero-buttons">
-          <a href="#join" className="ai-hub-btn ai-hub-btn-primary">
-            <span>Join The Hub</span>
-            <svg width={20} height={20} viewBox="0 0 20 20" fill="none">
-              <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </a>
-          <a href="#explore" className="ai-hub-btn ai-hub-btn-secondary">
-            <span>Explore More</span>
-            <svg width={20} height={20} viewBox="0 0 20 20" fill="none">
-              <path d="M10 3V17M3 10H17" stroke="currentColor" strokeWidth={2} strokeLinecap="round" />
-            </svg>
-          </a>
-        </div>
 
-        {/* Slideshow Indicators */}
-        <div className="ai-hub-slideshow-indicators">
-          {slides.map((_, index) => (
-            <button
-              key={index}
-              className={`ai-hub-indicator ${index === currentSlide ? 'active' : ''}`}
-              onClick={() => goToSlide(index)}
-              aria-label={`Slide ${index + 1}`}
-            />
-          ))}
-        </div>
       </div>
 
       {/* Scroll Indicator */}
